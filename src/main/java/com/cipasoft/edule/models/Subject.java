@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.*;
@@ -21,19 +22,23 @@ public class Subject {
     private Integer id;
 
     @Column(name = "subject_name")
-    private String subjectName;
+    private String subject_name;
 
     private String description;
 
-    @OneToMany(mappedBy = "subject")
-    @JsonIgnoreProperties("subject")
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "subject")
+    @JsonIgnore
     private List<Hour> hours;
 
-    @OneToMany(mappedBy = "subject")
-    @JsonIgnoreProperties("subject")
-    private List<Topic> classes;
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "subject")
+    @JsonIgnore
+    private List<Topic> topics;
 
-    @OneToMany(mappedBy = "subject")
-    @JsonIgnoreProperties("subject")
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "subject")
+    @JsonIgnore
     private List<UserSubject> userSubjects;
+    
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "subject")
+    @JsonIgnore
+    private List<SubjectClassroom> subjectClassrooms;
 }

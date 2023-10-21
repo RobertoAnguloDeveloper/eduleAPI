@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "class_contents")
+@Table(name = "topic_contents")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,7 +17,7 @@ public class TopicContent {
     private Integer id;
 
     @Column(name = "topic_name")
-    private String topicName;
+    private String topic_name;
 
     private String activity;
 
@@ -27,6 +27,6 @@ public class TopicContent {
     private String resources;
 
     @ManyToOne
-    @JoinColumn(name = "class_id")
+    @JoinColumn(name = "topic_id")
     private Topic topic;
 }

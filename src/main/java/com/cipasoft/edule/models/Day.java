@@ -17,5 +17,5 @@ public class Day {
     private Integer id;
 
     @Column(name = "day_number")
-    private Integer dayNumber;
+    private Integer day_number;
 }

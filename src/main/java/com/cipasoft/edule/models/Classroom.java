@@ -15,5 +15,5 @@ public class Classroom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String classroomName;
+    private String classroom_name;
 }

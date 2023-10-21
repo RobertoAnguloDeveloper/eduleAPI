@@ -8,6 +8,9 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "users")
 @Data
@@ -20,7 +23,7 @@ public class User {
 
     @ManyToOne
     @JoinColumn(name = "type_id")
-    private IdType idType;
+    private IdType type_id;
 
     private String identification;
 
@@ -34,15 +37,17 @@ public class User {
 
     @ManyToOne
     @JoinColumn(name = "role_id")
-    private Role role;
+    private Role role_id;
 
     private String username;
 
     private String password;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "user")
+    @JsonIgnore
     private List<Comment> comments;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "user")
+    @JsonIgnore
     private List<UserSubject> userSubjects;
 }
