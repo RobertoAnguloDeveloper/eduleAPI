@@ -12,25 +12,25 @@ import java.util.Optional;
 @Service
 public class ServTopic {
     @Autowired
-    private RepoTopic topicRepository;
+    private RepoTopic classRepository;
 
     public List<Topic> getAllTopics() {
-        return topicRepository.findAll();
+        return classRepository.findAll();
     }
 
     public Optional<Topic> getTopicById(Long id) {
-        return topicRepository.findById(id);
+        return classRepository.findById(id);
     }
 
     public Topic createTopic(Topic topic) {
-        return topicRepository.save(topic);
+        return classRepository.save(topic);
     }
 
     public Topic updateTopic(Topic topic) {
-        return topicRepository.save(topic);
+        return classRepository.save(topic);
     }
 
     public void deleteTopic(Long id) {
-        topicRepository.deleteById(id);
+        classRepository.deleteById(id);
     }
 }
