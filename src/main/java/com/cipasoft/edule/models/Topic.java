@@ -11,11 +11,11 @@ import jakarta.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClassName {
+public class Topic {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String className;
+    private String topic;
     private String description;
 
     @ManyToOne

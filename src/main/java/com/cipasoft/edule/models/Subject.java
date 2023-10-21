@@ -27,7 +27,7 @@ public class Subject {
     private List<Hour> hours;
 
     @OneToMany(mappedBy = "subject")
-    private List<ClassName> classes;
+    private List<Topic> classes;
 
     @OneToMany(mappedBy = "subject")
     private List<UserSubject> userSubjects;

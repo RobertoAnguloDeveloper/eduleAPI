@@ -11,7 +11,7 @@ import jakarta.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClassContent {
+public class TopicContent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,5 +28,5 @@ public class ClassContent {
 
     @ManyToOne
     @JoinColumn(name = "class_id")
-    private ClassName className;
+    private Topic topic;
 }
