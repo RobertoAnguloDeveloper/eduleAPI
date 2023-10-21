@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.cipasoft.edule.models.User;
 
 @Repository
-public interface RepoUser extends JpaRepository<User, Long> {
+public interface RepoUser extends JpaRepository<User, Integer> {
     
 }

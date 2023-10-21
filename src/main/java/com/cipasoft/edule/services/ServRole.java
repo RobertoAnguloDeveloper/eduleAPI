@@ -18,7 +18,7 @@ public class ServRole {
         return roleRepository.findAll();
     }
 
-    public Optional<Role> getRoleById(Long id) {
+    public Optional<Role> getRoleById(Integer id) {
         return roleRepository.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class ServRole {
         return roleRepository.save(role);
     }
 
-    public void deleteRole(Long id) {
+    public void deleteRole(Integer id) {
         roleRepository.deleteById(id);
     }
 }

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.cipasoft.edule.models.Role;
 
 @Repository
-public interface RepoRole extends JpaRepository<Role, Long> {
+public interface RepoRole extends JpaRepository<Role, Integer> {
     
 }

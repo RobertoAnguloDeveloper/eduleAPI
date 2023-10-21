@@ -18,7 +18,7 @@ public class ServHourDay {
         return hourDayRepository.findAll();
     }
 
-    public Optional<HourDay> getHourDayById(Long id) {
+    public Optional<HourDay> getHourDayById(Integer id) {
         return hourDayRepository.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class ServHourDay {
         return hourDayRepository.save(hourDay);
     }
 
-    public void deleteHourDay(Long id) {
+    public void deleteHourDay(Integer id) {
         hourDayRepository.deleteById(id);
     }
 }

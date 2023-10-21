@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.cipasoft.edule.models.SubjectClassroom;
 
 @Repository
-public interface RepoSubjectClassroom extends JpaRepository<SubjectClassroom, Long> {
+public interface RepoSubjectClassroom extends JpaRepository<SubjectClassroom, Integer> {
     
 }

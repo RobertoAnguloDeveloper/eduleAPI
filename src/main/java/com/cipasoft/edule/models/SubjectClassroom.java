@@ -14,7 +14,7 @@ import jakarta.persistence.*;
 public class SubjectClassroom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "subject_id")

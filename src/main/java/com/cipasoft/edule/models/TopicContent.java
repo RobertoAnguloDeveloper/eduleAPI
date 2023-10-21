@@ -14,7 +14,7 @@ import jakarta.persistence.*;
 public class TopicContent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "topic_name")
     private String topicName;

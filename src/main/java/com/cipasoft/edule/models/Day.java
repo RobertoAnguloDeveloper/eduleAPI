@@ -14,7 +14,7 @@ import jakarta.persistence.*;
 public class Day {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "day_number")
     private Integer dayNumber;

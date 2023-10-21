@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.cipasoft.edule.models.Comment;
 
 @Repository
-public interface RepoComment extends JpaRepository<Comment, Long> {
+public interface RepoComment extends JpaRepository<Comment, Integer> {
     
 }

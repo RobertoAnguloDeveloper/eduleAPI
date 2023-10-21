@@ -18,7 +18,7 @@ public class ServClassroom {
         return classroomRepository.findAll();
     }
 
-    public Optional<Classroom> getClassroomById(Long id) {
+    public Optional<Classroom> getClassroomById(Integer id) {
         return classroomRepository.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class ServClassroom {
         return classroomRepository.save(classroom);
     }
 
-    public void deleteClassroom(Long id) {
+    public void deleteClassroom(Integer id) {
         classroomRepository.deleteById(id);
     }
 }

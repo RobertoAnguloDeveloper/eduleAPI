@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.cipasoft.edule.models.Subject;
 
 @Repository
-public interface RepoSubject extends JpaRepository<Subject, Long> {
+public interface RepoSubject extends JpaRepository<Subject, Integer> {
     
 }

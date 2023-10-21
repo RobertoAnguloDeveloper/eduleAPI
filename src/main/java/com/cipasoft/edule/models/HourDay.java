@@ -14,7 +14,7 @@ import jakarta.persistence.*;
 public class HourDay {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "day_id")

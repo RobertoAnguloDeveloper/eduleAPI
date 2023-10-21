@@ -18,7 +18,7 @@ public class ServTopicContent {
         return classContentRepository.findAll();
     }
 
-    public Optional<TopicContent> getTopicContentById(Long id) {
+    public Optional<TopicContent> getTopicContentById(Integer id) {
         return classContentRepository.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class ServTopicContent {
         return classContentRepository.save(classContent);
     }
 
-    public void deleteTopicContent(Long id) {
+    public void deleteTopicContent(Integer id) {
         classContentRepository.deleteById(id);
     }
 }

@@ -18,7 +18,7 @@ public class ServIdType {
         return idTypeRepository.findAll();
     }
 
-    public Optional<IdType> getIdTypeById(Long id) {
+    public Optional<IdType> getIdTypeById(Integer id) {
         return idTypeRepository.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class ServIdType {
         return idTypeRepository.save(idType);
     }
 
-    public void deleteIdType(Long id) {
+    public void deleteIdType(Integer id) {
         idTypeRepository.deleteById(id);
     }
 }

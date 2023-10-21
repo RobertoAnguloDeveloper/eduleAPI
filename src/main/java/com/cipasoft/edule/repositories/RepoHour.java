@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.cipasoft.edule.models.Hour;
 
 @Repository
-public interface RepoHour extends JpaRepository<Hour, Long> {
+public interface RepoHour extends JpaRepository<Hour, Integer> {
     
 }

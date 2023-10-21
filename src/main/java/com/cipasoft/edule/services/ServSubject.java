@@ -18,7 +18,7 @@ public class ServSubject {
         return subjectRepository.findAll();
     }
 
-    public Optional<Subject> getSubjectById(Long id) {
+    public Optional<Subject> getSubjectById(Integer id) {
         return subjectRepository.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class ServSubject {
         return subjectRepository.save(subject);
     }
 
-    public void deleteSubject(Long id) {
+    public void deleteSubject(Integer id) {
         subjectRepository.deleteById(id);
     }
 }

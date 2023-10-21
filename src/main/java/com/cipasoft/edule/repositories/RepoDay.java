@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.cipasoft.edule.models.Day;
 
 @Repository
-public interface RepoDay extends JpaRepository<Day, Long> {
+public interface RepoDay extends JpaRepository<Day, Integer> {
     
 }

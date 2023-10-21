@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ServTopicComment {
+public class ServComment {
     @Autowired
     private RepoComment commentRepository;
 
@@ -18,7 +18,7 @@ public class ServTopicComment {
         return commentRepository.findAll();
     }
 
-    public Optional<Comment> getCommentById(Long id) {
+    public Optional<Comment> getCommentById(Integer id) {
         return commentRepository.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class ServTopicComment {
         return commentRepository.save(comment);
     }
 
-    public void deleteComment(Long id) {
+    public void deleteComment(Integer id) {
         commentRepository.deleteById(id);
     }
 }

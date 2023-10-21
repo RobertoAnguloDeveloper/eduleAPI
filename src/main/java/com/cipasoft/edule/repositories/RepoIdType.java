@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.cipasoft.edule.models.IdType;
 
 @Repository
-public interface RepoIdType extends JpaRepository<IdType, Long> {
+public interface RepoIdType extends JpaRepository<IdType, Integer> {
     
 }

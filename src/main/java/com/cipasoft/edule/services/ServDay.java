@@ -18,7 +18,7 @@ public class ServDay {
         return dayRepository.findAll();
     }
 
-    public Optional<Day> getDayById(Long id) {
+    public Optional<Day> getDayById(Integer id) {
         return dayRepository.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class ServDay {
         return dayRepository.save(day);
     }
 
-    public void deleteDay(Long id) {
+    public void deleteDay(Integer id) {
         dayRepository.deleteById(id);
     }
 }

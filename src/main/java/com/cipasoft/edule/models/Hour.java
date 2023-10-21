@@ -14,7 +14,7 @@ import jakarta.persistence.*;
 public class Hour {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private java.sql.Time hour;
 
