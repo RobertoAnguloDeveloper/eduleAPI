@@ -4,21 +4,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "hours")
+@Table(name = "hours_subjects")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Hour {
+public class HourSubject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private java.sql.Time hour;
+    @ManyToOne
+    @JoinColumn(name = "subject_id")
+    private Subject subject;
+
+    @ManyToOne
+    @JoinColumn(name = "hour_id")
+    private Hour hour;
 }
