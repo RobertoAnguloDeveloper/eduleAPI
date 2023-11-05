@@ -7,14 +7,20 @@ import lombok.AllArgsConstructor;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "id_types")
+@Table(name = "hours_subjects")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class IdType {
+public class HourSubject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String name;
+    @ManyToOne
+    @JoinColumn(name = "subject_id")
+    private Subject subject;
+
+    @ManyToOne
+    @JoinColumn(name = "hour_id")
+    private Hour hour;
 }

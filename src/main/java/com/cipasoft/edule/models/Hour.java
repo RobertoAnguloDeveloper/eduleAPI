@@ -4,6 +4,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -17,8 +21,4 @@ public class Hour {
     private Integer id;
 
     private java.sql.Time hour;
-
-    @ManyToOne
-    @JoinColumn(name = "subject_id")
-    private Subject subject;
 }

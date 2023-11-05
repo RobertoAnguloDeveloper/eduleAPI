@@ -20,9 +20,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "type_id")
-    private IdType type_id;
+    @Column(name = "id_type")
+    private String id_type;
 
     private String identification;
 
