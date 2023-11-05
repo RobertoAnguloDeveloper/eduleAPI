@@ -23,6 +23,7 @@ public class ServUser {
     }
 
     public User createUser(User user) {
+        System.out.println("Entra");
         return userRepository.save(user);
     }
 

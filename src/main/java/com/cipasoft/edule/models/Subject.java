@@ -27,10 +27,6 @@ public class Subject {
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "subject")
     @JsonIgnore
-    private List<Hour> hours;
-
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "subject")
-    @JsonIgnore
     private List<Topic> topics;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "subject")
@@ -40,4 +36,8 @@ public class Subject {
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "subject")
     @JsonIgnore
     private List<SubjectClassroom> subjectClassrooms;
+
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "subject")
+    @JsonIgnore
+    private List<HourSubject> hourSubjects;
 }
