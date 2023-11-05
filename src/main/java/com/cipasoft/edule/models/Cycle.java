@@ -7,21 +7,19 @@ import lombok.AllArgsConstructor;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "hours_days")
+@Table(name = "cycles")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class HourDay {
+public class Cycle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "hour_id")
-    private Hour hour;
+    @Column(name = "cycle_number")
+    private Integer cycle_number;
 
     @ManyToOne
     @JoinColumn(name = "day_id")
     private Day day;
-
 }
