@@ -9,6 +9,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.context.annotation.Bean;
 
 @Entity
 @Table(name = "users")
@@ -48,4 +49,5 @@ public class User {
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "user")
     @JsonIgnore
     private List<UserSubject> userSubjects;
+
 }

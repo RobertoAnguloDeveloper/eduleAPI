@@ -35,7 +35,7 @@ public class ConUser {
         return userService.updateUser(user);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteUser(@PathVariable("id") Integer id) {
         userService.deleteUser(id);

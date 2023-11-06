@@ -1,5 +1,6 @@
 package com.cipasoft.edule.controllers;
 
+import com.cipasoft.edule.repositories.RepoClassroom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +9,7 @@ import com.cipasoft.edule.models.Classroom;
 import com.cipasoft.edule.services.ServClassroom;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/classroom")
@@ -15,6 +17,8 @@ import java.util.List;
 public class ConClassroom {
     @Autowired
     private ServClassroom classroomService;
+
+    private RepoClassroom repoClassroom;
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
@@ -27,10 +31,16 @@ public class ConClassroom {
         return classroomService.getAllClassrooms();
     }
 
-    @PutMapping("/update")
+    @PutMapping("/update/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Classroom updateClassroom(@RequestBody Classroom classroom) {
-        return classroomService.updateClassroom(classroom);
+    public Classroom updateClassroom(@PathVariable("id") Integer id, @RequestBody Classroom classroom){
+       Optional <Classroom> classroomFud =  classroomService.getClassroomById(id);
+       if(classroomFud.isPresent()){
+           Classroom classroomUpt = classroomFud.get();
+           classroomFud.get().setClassroom_name(classroom.getClassroom_name());
+           return classroomService.createClassroom(classroomUpt);
+       }
+       return  null;
     }
 
     @DeleteMapping("/{id}")
