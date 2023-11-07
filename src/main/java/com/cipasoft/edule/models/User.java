@@ -43,9 +43,5 @@ public class User {
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "user")
     @JsonIgnore
-    private List<Comment> comments;
-
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "user")
-    @JsonIgnore
     private List<UserSubject> userSubjects;
 }
