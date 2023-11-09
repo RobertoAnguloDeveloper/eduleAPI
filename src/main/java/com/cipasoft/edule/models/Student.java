@@ -29,10 +29,6 @@ public class Student {
 
     private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "role_id")
-    private Role role_id;
-
     private String username;
 
     private String password;

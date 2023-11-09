@@ -31,11 +31,11 @@ public class ServClassroom {
             Optional<Classroom> existingClassroom = classroomRepository.findById(classroom.getId());
             if (existingClassroom.isPresent()) {
                 Classroom updatedClassroom = existingClassroom.get();
-                updatedClassroom.setClassroom_name(classroom.getClassroom_name()); // Actualiza otros atributos según sea necesario
+                updatedClassroom.setClassroom_name(classroom.getClassroom_name());
                 return classroomRepository.save(updatedClassroom);
             }
         }
-        // Si no se encuentra el objeto en la base de datos, puedes lanzar una excepción o manejarlo de acuerdo a tus necesidades.
+       
         return null;
     }
 

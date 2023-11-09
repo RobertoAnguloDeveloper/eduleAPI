@@ -33,7 +33,6 @@ public class ServTopicContent {
             if (existingTopicContent.isPresent()) {
                 TopicContent updatedTopicContent = existingTopicContent.get();
 
-                // Actualiza los campos según sea necesario
                 if (topicContent.getTopic_name() != null) {
                     updatedTopicContent.setTopic_name(topicContent.getTopic_name());
                 }

@@ -19,13 +19,11 @@ public class ConUser {
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public void createUser(@RequestBody User user) {
-        System.out.println("Entro");
         userService.createUser(user);
     }
 
     @GetMapping("/all")
     public List<User> getAllUsers() {
-        System.out.println("GETTTT");
         return userService.getAllUsers();
     }
 

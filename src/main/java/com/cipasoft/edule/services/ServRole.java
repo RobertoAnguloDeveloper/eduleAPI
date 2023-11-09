@@ -32,7 +32,6 @@ public class ServRole {
                 Optional<Role> oldRole = roleRepository.findById(role.getId());
                 Role updatedRole = oldRole.get();
 
-                // Actualiza los campos según sea necesario
                 if (role.getRole_name() != null) {
                     updatedRole.setRole_name(role.getRole_name());
                 }

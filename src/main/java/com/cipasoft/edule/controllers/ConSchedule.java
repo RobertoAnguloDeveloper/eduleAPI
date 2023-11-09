@@ -14,28 +14,28 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class ConSchedule {
     @Autowired
-    private ServSchedule ScheduleService;
+    private ServSchedule scheduleService;
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createSchedule(@RequestBody Schedule Schedule) {
-        ScheduleService.createSchedule(Schedule);
+    public void createSchedule(@RequestBody Schedule schedule) {
+        scheduleService.createSchedule(schedule);
     }
 
     @GetMapping("/all")
     public List<Schedule> getAllSchedules() {
-        return ScheduleService.getAllSchedules();
+        return scheduleService.getAllSchedules();
     }
 
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Schedule updateSchedule(@RequestBody Schedule Schedule) {
-        return ScheduleService.updateSchedule(Schedule);
+    public Schedule updateSchedule(@RequestBody Schedule schedule) {
+        return scheduleService.updateSchedule(schedule);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteSchedule(@PathVariable("id") Integer id) {
-        ScheduleService.deleteSchedule(id);
+        scheduleService.deleteSchedule(id);
     }
 }

@@ -48,9 +48,7 @@ public class ServStudent {
                 if (student.getEmail() != null) {
                     updatedStudent.setEmail(student.getEmail());
                 }
-                if (student.getRole_id() != null) {
-                    updatedStudent.setRole_id(student.getRole_id());
-                }
+                
                 if (student.getUsername() != null) {
                     updatedStudent.setUsername(student.getUsername());
                 }

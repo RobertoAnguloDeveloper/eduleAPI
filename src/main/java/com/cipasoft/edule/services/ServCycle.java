@@ -22,8 +22,8 @@ public class ServCycle {
         return RepoCycle.findById(id);
     }
 
-    public Cycle createCycle(Cycle Cycle) {
-        return RepoCycle.save(Cycle);
+    public Cycle createCycle(Cycle cycle) {
+        return RepoCycle.save(cycle);
     }
 
     public Cycle updateCycle(Cycle cycle) {

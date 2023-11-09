@@ -57,11 +57,9 @@ public class ServParent {
 
                 return parentRepository.save(updatedParent);
             } else {
-                // Parent no encontrado, puede realizar otro manejo de error o lanzar una excepción
                 return null;
             }
         } else {
-            // Datos de Parent nulos o faltantes, puede realizar otro manejo de error o lanzar una excepción
             return null;
         }
     }
