@@ -16,22 +16,26 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "id_type")
-    private String id_type;
-
-    private String identification;
-
     @Column(name = "first_name")
     private String firstName;
 
     @Column(name = "last_name")
     private String lastName;
 
+    @Column(name = "identification")
+    private String identification;
+
+    @Column(name = "email")
     private String email;
 
+    @Column(name = "username")
     private String username;
 
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "id_type")
+    private String id_type;
 
     @ManyToOne
     @JoinColumn(name = "classroom_id")
@@ -40,4 +44,6 @@ public class Student {
     @ManyToOne
     @JoinColumn(name = "parent_id")
     private Parent parent;
+
+    
 }
