@@ -27,7 +27,22 @@ public class ServHour {
     }
 
     public Hour updateHour(Hour hour) {
-        return hourRepository.save(hour);
+        if (hour != null && hour.getId() != null) {
+            if (hourRepository.existsById(hour.getId())) {
+                Optional<Hour> oldHour = hourRepository.findById(hour.getId());
+                Hour updatedHour = oldHour.get();
+
+                if (hour.getHour() != null) {
+                    updatedHour.setHour(hour.getHour());
+                }
+
+                return hourRepository.save(updatedHour);
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
     }
 
     public void deleteHour(Integer id) {

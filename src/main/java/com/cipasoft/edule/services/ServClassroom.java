@@ -27,7 +27,16 @@ public class ServClassroom {
     }
 
     public Classroom updateClassroom(Classroom classroom) {
-        return classroomRepository.save(classroom);
+        if (classroom.getId() != null) {
+            Optional<Classroom> existingClassroom = classroomRepository.findById(classroom.getId());
+            if (existingClassroom.isPresent()) {
+                Classroom updatedClassroom = existingClassroom.get();
+                updatedClassroom.setClassroom_name(classroom.getClassroom_name());
+                return classroomRepository.save(updatedClassroom);
+            }
+        }
+       
+        return null;
     }
 
     public void deleteClassroom(Integer id) {

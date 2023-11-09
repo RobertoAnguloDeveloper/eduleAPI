@@ -12,6 +12,7 @@ import java.util.Optional;
 @Service
 public class ServSchedule {
     @Autowired
+<<<<<<< HEAD
     private RepoSchedule ScheduleRepository;
 
     public List<Schedule> getAllSchedules() {
@@ -32,5 +33,46 @@ public class ServSchedule {
 
     public void deleteSchedule(Integer id) {
         ScheduleRepository.deleteById(id);
+=======
+    private RepoSchedule scheduleRepository;
+
+    public List<Schedule> getAllSchedules() {
+        return scheduleRepository.findAll();
+    }
+
+    public Optional<Schedule> getScheduleById(Integer id) {
+        return scheduleRepository.findById(id);
+    }
+
+    public Schedule createSchedule(Schedule schedule) {
+        return scheduleRepository.save(schedule);
+    }
+
+    public Schedule updateSchedule(Schedule schedule) {
+        if (schedule != null && schedule.getId() != null) {
+            Optional<Schedule> existingSchedule = scheduleRepository.findById(schedule.getId());
+
+            if (existingSchedule.isPresent()) {
+                Schedule updatedSchedule = existingSchedule.get();
+                
+                if (schedule.getHour_day_id() != null) {
+                    updatedSchedule.setHour_day_id(schedule.getHour_day_id());
+                }
+                if (schedule.getSubject_classroom_id() != null) {
+                    updatedSchedule.setSubject_classroom_id(schedule.getSubject_classroom_id());
+                }
+
+                return scheduleRepository.save(updatedSchedule);
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
+    }
+
+    public void deleteSchedule(Integer id) {
+        scheduleRepository.deleteById(id);
+>>>>>>> 9f2752f2fba057da02051bd38d798856e255e993
     }
 }
