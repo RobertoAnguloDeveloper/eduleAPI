@@ -27,7 +27,26 @@ public class ServUserSubject {
     }
 
     public UserSubject updateUserSubject(UserSubject userSubject) {
-        return userSubjectRepository.save(userSubject);
+        if (userSubject != null && userSubject.getId() != null) {
+            Optional<UserSubject> existingUserSubject = userSubjectRepository.findById(userSubject.getId());
+
+            if (existingUserSubject.isPresent()) {
+                UserSubject updatedUserSubject = existingUserSubject.get();
+
+                if (userSubject.getSubject() != null) {
+                    updatedUserSubject.setSubject(userSubject.getSubject());
+                }
+                if (userSubject.getUser() != null) {
+                    updatedUserSubject.setUser(userSubject.getUser());
+                }
+
+                return userSubjectRepository.save(updatedUserSubject);
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
     }
 
     public void deleteUserSubject(Integer id) {

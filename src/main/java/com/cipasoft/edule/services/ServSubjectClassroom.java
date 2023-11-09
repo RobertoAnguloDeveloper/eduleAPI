@@ -12,25 +12,44 @@ import java.util.Optional;
 @Service
 public class ServSubjectClassroom {
     @Autowired
-    private RepoSubjectClassroom subjectClassroomClassroomRepository;
+    private RepoSubjectClassroom subjectClassroomRepository;
 
     public List<SubjectClassroom> getAllSubjectClassrooms() {
-        return subjectClassroomClassroomRepository.findAll();
+        return subjectClassroomRepository.findAll();
     }
 
     public Optional<SubjectClassroom> getSubjectClassroomById(Integer id) {
-        return subjectClassroomClassroomRepository.findById(id);
+        return subjectClassroomRepository.findById(id);
     }
 
     public SubjectClassroom createSubjectClassroom(SubjectClassroom subjectClassroom) {
-        return subjectClassroomClassroomRepository.save(subjectClassroom);
+        return subjectClassroomRepository.save(subjectClassroom);
     }
 
     public SubjectClassroom updateSubjectClassroom(SubjectClassroom subjectClassroom) {
-        return subjectClassroomClassroomRepository.save(subjectClassroom);
+        if (subjectClassroom != null && subjectClassroom.getId() != null) {
+            Optional<SubjectClassroom> existingSubjectClassroom = subjectClassroomRepository.findById(subjectClassroom.getId());
+
+            if (existingSubjectClassroom.isPresent()) {
+                SubjectClassroom updatedSubjectClassroom = existingSubjectClassroom.get();
+
+                if (subjectClassroom.getSubject() != null) {
+                    updatedSubjectClassroom.setSubject(subjectClassroom.getSubject());
+                }
+                if (subjectClassroom.getClassroom() != null) {
+                    updatedSubjectClassroom.setClassroom(subjectClassroom.getClassroom());
+                }
+
+                return subjectClassroomRepository.save(updatedSubjectClassroom);
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
     }
 
     public void deleteSubjectClassroom(Integer id) {
-        subjectClassroomClassroomRepository.deleteById(id);
+        subjectClassroomRepository.deleteById(id);
     }
 }
