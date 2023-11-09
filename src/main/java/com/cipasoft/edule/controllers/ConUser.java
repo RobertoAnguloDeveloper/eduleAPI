@@ -32,6 +32,21 @@ public class ConUser {
         return userService.getAllUsers();
     }
 
+    @GetMapping("/teachers")
+    public List<User> getAllTeachers() {
+        return userService.getAllTeachers();
+    }
+
+    @GetMapping("/admins")
+    public List<User> getAllAdministrators() {
+        return userService.getAllAdministrators();
+    }
+
+    @GetMapping("/acacoords")
+    public List<User> getAllAcademicCoordinators() {
+        return userService.getAllAcademicCoordinators();
+    }
+
     @GetMapping("/login")
     public List<CombinedUser> getAllUsersOrderedByUsername() {
         return userCombinedService.getAllUsersOrderedByUsername();
