@@ -33,6 +33,11 @@ public class ConSchedule {
         return scheduleService.updateSchedule(schedule);
     }
 
+    @GetMapping("/details/{username}")
+    public List<Object[]> getScheduleDetailsByUsername(@PathVariable("username") String username) {
+        return scheduleService.findScheduleDetailsByUsername(username);
+    }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteSchedule(@PathVariable("id") Integer id) {

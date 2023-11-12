@@ -49,6 +49,10 @@ public class ServSchedule {
         }
     }
 
+    public List<Object[]> findScheduleDetailsByUsername(String username) {
+        return scheduleRepository.findScheduleDetailsByUsername(username);
+    }
+
     public void deleteSchedule(Integer id) {
         scheduleRepository.deleteById(id);
     }
