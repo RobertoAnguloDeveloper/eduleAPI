@@ -10,7 +10,7 @@ import com.cipasoft.edule.services.ServTopic;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/Topic")
+@RequestMapping("/api/topic")
 @CrossOrigin(origins = "*")
 public class ConTopic {
     @Autowired

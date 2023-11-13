@@ -27,7 +27,47 @@ public class ServParent {
     }
 
     public Parent updateParent(Parent parent) {
-        return parentRepository.save(parent);
+        if (parent != null && parent.getId() != null) {
+            if (parentRepository.existsById(parent.getId())) {
+                Optional<Parent> oldParent = parentRepository.findById(parent.getId());
+                Parent updatedParent = oldParent.get();
+
+                // Actualiza los campos según sea necesario
+                if (parent.getFirstName() != null) {
+                    updatedParent.setFirstName(parent.getFirstName());
+                }
+                if (parent.getLastName() != null) {
+                    updatedParent.setLastName(parent.getLastName());
+                }
+                if (parent.getIdentification() != null) {
+                    updatedParent.setIdentification(parent.getIdentification());
+                }
+                if (parent.getPhoneNumber() != null) {
+                    updatedParent.setPhoneNumber(parent.getPhoneNumber());
+                }
+                if (parent.getAddress() != null) {
+                    updatedParent.setAddress(parent.getAddress());
+                }
+                if (parent.getUsername() != null) {
+                    updatedParent.setUsername(parent.getUsername());
+                }
+                if (parent.getPassword() != null) {
+                    updatedParent.setPassword(parent.getPassword());
+                }
+                if (parent.getId_type() != null) {
+                    updatedParent.setId_type(parent.getId_type());
+                }
+                if (parent.getEmail() != null) {
+                    updatedParent.setEmail(parent.getEmail());
+                }
+
+                return parentRepository.save(updatedParent);
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
     }
 
     public void deleteParent(Integer id) {

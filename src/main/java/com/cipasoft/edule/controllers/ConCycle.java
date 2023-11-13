@@ -14,28 +14,28 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class ConCycle {
     @Autowired
-    private ServCycle CycleService;
+    private ServCycle cycleService;
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createCycle(@RequestBody Cycle Cycle) {
-        CycleService.createCycle(Cycle);
+    public void createCycle(@RequestBody Cycle cycle) {
+        cycleService.createCycle(cycle);
     }
 
     @GetMapping("/all")
     public List<Cycle> getAllCycles() {
-        return CycleService.getAllCycles();
+        return cycleService.getAllCycles();
     }
 
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Cycle updateCycle(@RequestBody Cycle Cycle) {
-        return CycleService.updateCycle(Cycle);
+    public Cycle updateCycle(@RequestBody Cycle cycle) {
+        return cycleService.updateCycle(cycle);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteCycle(@PathVariable("id") Integer id) {
-        CycleService.deleteCycle(id);
+        cycleService.deleteCycle(id);
     }
 }

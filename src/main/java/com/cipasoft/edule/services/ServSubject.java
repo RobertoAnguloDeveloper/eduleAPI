@@ -27,7 +27,26 @@ public class ServSubject {
     }
 
     public Subject updateSubject(Subject subject) {
-        return subjectRepository.save(subject);
+        if (subject != null && subject.getId() != null) {
+            Optional<Subject> existingSubject = subjectRepository.findById(subject.getId());
+
+            if (existingSubject.isPresent()) {
+                Subject updatedSubject = existingSubject.get();
+
+                if (subject.getSubject_name() != null) {
+                    updatedSubject.setSubject_name(subject.getSubject_name());
+                }
+                if (subject.getDescription() != null) {
+                    updatedSubject.setDescription(subject.getDescription());
+                }
+
+                return subjectRepository.save(updatedSubject);
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
     }
 
     public void deleteSubject(Integer id) {

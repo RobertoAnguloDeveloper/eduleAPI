@@ -27,7 +27,25 @@ public class ServHourDay {
     }
 
     public HourDay updateHourDay(HourDay hourDay) {
-        return hourDayRepository.save(hourDay);
+        if (hourDay != null && hourDay.getId() != null) {
+            if (hourDayRepository.existsById(hourDay.getId())) {
+                Optional<HourDay> oldHourDay = hourDayRepository.findById(hourDay.getId());
+                HourDay updatedHourDay = oldHourDay.get();
+
+                if (hourDay.getHour() != null) {
+                    updatedHourDay.setHour(hourDay.getHour());
+                }
+                if (hourDay.getDay() != null) {
+                    updatedHourDay.setDay(hourDay.getDay());
+                }
+
+                return hourDayRepository.save(updatedHourDay);
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
     }
 
     public void deleteHourDay(Integer id) {

@@ -27,7 +27,22 @@ public class ServDay {
     }
 
     public Day updateDay(Day day) {
-        return dayRepository.save(day);
+        if (day != null && day.getId() != null) {
+            if (dayRepository.existsById(day.getId())) {
+                Optional<Day> oldDay = dayRepository.findById(day.getId());
+                Day updatedDay = oldDay.get();
+
+                if (day.getDay_number() != null) {
+                    updatedDay.setDay_number(day.getDay_number());
+                }
+
+                return dayRepository.save(updatedDay);
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
     }
 
     public void deleteDay(Integer id) {
