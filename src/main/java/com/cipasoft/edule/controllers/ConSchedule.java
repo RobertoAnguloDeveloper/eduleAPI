@@ -33,9 +33,14 @@ public class ConSchedule {
         return scheduleService.updateSchedule(schedule);
     }
 
-    @GetMapping("/details/{username}")
+    @GetMapping("/teacher/{username}")
     public List<Object[]> getScheduleDetailsByUsername(@PathVariable("username") String username) {
         return scheduleService.findScheduleDetailsByUsername(username);
+    }
+
+    @GetMapping("/student/{username}")
+    public List<Object[]> findScheduleDetailsByStudent(@PathVariable("username") String username) {
+        return scheduleService.findScheduleDetailsByStudent(username);
     }
 
     @DeleteMapping("/{id}")
