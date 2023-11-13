@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.cipasoft.edule.models.User;
 import com.cipasoft.edule.repositories.RepoUser;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +17,45 @@ public class ServUser {
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    public List<User> getAllTeachers() {
+        List<User> teachers = new ArrayList<>();
+
+        List<User> allUsers = getAllUsers();
+
+        for (User user : allUsers) {
+            if(user.getRole_id().getId() == 2){
+                teachers.add(user);
+            }
+        }
+        return teachers;
+    }
+
+    public List<User> getAllAdministrators() {
+        List<User> administrators = new ArrayList<>();
+
+        List<User> allUsers = getAllUsers();
+
+        for (User user : allUsers) {
+            if(user.getRole_id().getId() == 1){
+                administrators.add(user);
+            }
+        }
+        return administrators;
+    }
+
+    public List<User> getAllAcademicCoordinators() {
+        List<User> academicCoordinators = new ArrayList<>();
+
+        List<User> allUsers = getAllUsers();
+
+        for (User user : allUsers) {
+            if(user.getRole_id().getId() == 1){
+                academicCoordinators.add(user);
+            }
+        }
+        return academicCoordinators;
     }
 
     public Optional<User> getUserById(Integer id) {

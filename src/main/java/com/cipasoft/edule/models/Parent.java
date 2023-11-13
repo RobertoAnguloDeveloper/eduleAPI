@@ -24,18 +24,28 @@ public class Parent {
     @Column(name = "last_name")
     private String lastName;
 
-    private String CC; // Asumiendo que CC significa Cédula de Ciudadanía
+    @Column(name = "identification")
+    private String identification; // Asumiendo que CC significa Cédula de Ciudadanía
 
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @Column(name = "address")
     private String address;
 
+    @Column(name = "username")
     private String username;
 
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "id_type")
+    private String id_type;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "parent")
     @JsonIgnore
     private List<Student> students;
+
+    @Column(name = "email")
+    private String email;
 }
