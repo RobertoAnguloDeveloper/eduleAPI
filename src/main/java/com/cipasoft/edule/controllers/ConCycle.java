@@ -2,8 +2,10 @@ package com.cipasoft.edule.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.cipasoft.edule.models.Classroom;
 import com.cipasoft.edule.models.Cycle;
 import com.cipasoft.edule.services.ServCycle;
 
@@ -23,8 +25,13 @@ public class ConCycle {
     }
 
     @GetMapping("/all")
-    public List<Cycle> getAllCycles() {
-        return cycleService.getAllCycles();
+    public ResponseEntity<List<Cycle>> getAllCycles() {
+        List<Cycle> cycles = cycleService.getAllCycles();
+        if (cycles.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(cycles);
+        }
     }
 
     @PutMapping("/update")

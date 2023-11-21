@@ -2,8 +2,10 @@ package com.cipasoft.edule.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.cipasoft.edule.models.HourDay;
 import com.cipasoft.edule.models.Role;
 import com.cipasoft.edule.services.ServRole;
 
@@ -23,8 +25,13 @@ public class ConRole {
     }
 
     @GetMapping("/all")
-    public List<Role> getAllRoles() {
-        return roleService.getAllRoles();
+    public ResponseEntity<List<Role>> getAllRoles() {
+        List<Role> role = roleService.getAllRoles();
+        if (role.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(role);
+        }
     }
 
     @PutMapping("/update")

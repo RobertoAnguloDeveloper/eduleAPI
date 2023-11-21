@@ -2,8 +2,10 @@ package com.cipasoft.edule.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.cipasoft.edule.models.Cycle;
 import com.cipasoft.edule.models.Day;
 import com.cipasoft.edule.services.ServDay;
 
@@ -23,8 +25,13 @@ public class ConDay {
     }
 
     @GetMapping("/all")
-    public List<Day> getAllDays() {
-        return dayService.getAllDays();
+    public ResponseEntity<List<Day>> getAllDays() {
+        List<Day> days = dayService.getAllDays();
+        if (days.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(days);
+        }
     }
 
     @PutMapping("/update")

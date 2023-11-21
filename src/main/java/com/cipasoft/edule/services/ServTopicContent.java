@@ -33,9 +33,6 @@ public class ServTopicContent {
             if (existingTopicContent.isPresent()) {
                 TopicContent updatedTopicContent = existingTopicContent.get();
 
-                if (topicContent.getTopic_name() != null) {
-                    updatedTopicContent.setTopic_name(topicContent.getTopic_name());
-                }
                 if (topicContent.getActivity() != null) {
                     updatedTopicContent.setActivity(topicContent.getActivity());
                 }
