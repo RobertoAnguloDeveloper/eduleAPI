@@ -2,8 +2,10 @@ package com.cipasoft.edule.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.cipasoft.edule.models.Cycle;
 import com.cipasoft.edule.models.Hour;
 import com.cipasoft.edule.services.ServHour;
 
@@ -23,8 +25,13 @@ public class ConHour {
     }
 
     @GetMapping("/all")
-    public List<Hour> getAllHours() {
-        return hourService.getAllHours();
+    public ResponseEntity<List<Hour>> getAllHours() {
+        List<Hour> hours = hourService.getAllHours();
+        if (hours.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(hours);
+        }
     }
 
     @PutMapping("/update")

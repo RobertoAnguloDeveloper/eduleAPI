@@ -2,9 +2,11 @@ package com.cipasoft.edule.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.cipasoft.edule.models.CombinedUser;
+import com.cipasoft.edule.models.TopicContent;
 import com.cipasoft.edule.models.User;
 import com.cipasoft.edule.services.ServUser;
 import com.cipasoft.edule.services.UserCombinedService;
@@ -28,8 +30,13 @@ public class ConUser {
     }
 
     @GetMapping("/all")
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    public ResponseEntity<List<User>> getAllUsers() {
+        List<User> user = userService.getAllUsers();
+        if (user.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(user);
+        }
     }
 
     @GetMapping("/teachers")
