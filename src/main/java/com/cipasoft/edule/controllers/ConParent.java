@@ -2,8 +2,10 @@ package com.cipasoft.edule.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.cipasoft.edule.models.HourDay;
 import com.cipasoft.edule.models.Parent;
 import com.cipasoft.edule.services.ServParent;
 
@@ -23,8 +25,13 @@ public class ConParent {
     }
 
     @GetMapping("/all")
-    public List<Parent> getAllParents() {
-        return parentService.getAllParents();
+    public ResponseEntity<List<Parent>> getAllParents() {
+        List<Parent> parent = parentService.getAllParents();
+        if (parent.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(parent);
+        }
     }
 
     @PutMapping("/update")
