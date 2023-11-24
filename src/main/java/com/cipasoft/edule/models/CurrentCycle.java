@@ -7,23 +7,23 @@ import lombok.AllArgsConstructor;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "topic_contents")
+@Table(name = "current_cycles")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TopicContent {
+public class CurrentCycle {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String activity;
-
-    @Column(name = "pending_homework")
-    private String pendingHomework;
-
-    private String resources;
-
     @ManyToOne
-    @JoinColumn(name = "topic_id")
-    private Topic topic;
+    @JoinColumn(name = "current_day")
+    private Day currentDay;
+
+    @Column(name = "update_date")
+    private String updateDate;
+
+    @Column(name = "incident_description")
+    private String incidentDescription;
 }

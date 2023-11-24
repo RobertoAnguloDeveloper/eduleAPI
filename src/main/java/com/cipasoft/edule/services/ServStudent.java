@@ -32,18 +32,14 @@ public class ServStudent {
 
             if (existingStudent.isPresent()) {
                 Student updatedStudent = existingStudent.get();
-
-                if (student.getId_type() != null) {
-                    updatedStudent.setId_type(student.getId_type());
-                }
-                if (student.getIdentification() != null) {
-                    updatedStudent.setIdentification(student.getIdentification());
-                }
                 if (student.getFirstName() != null) {
                     updatedStudent.setFirstName(student.getFirstName());
                 }
                 if (student.getLastName() != null) {
                     updatedStudent.setLastName(student.getLastName());
+                }
+                if (student.getIdentification() != null) {
+                    updatedStudent.setIdentification(student.getIdentification());
                 }
                 if (student.getEmail() != null) {
                     updatedStudent.setEmail(student.getEmail());
@@ -60,6 +56,9 @@ public class ServStudent {
                 }
                 if (student.getParent() != null) {
                     updatedStudent.setParent(student.getParent());
+                }
+                if (student.getId_type() != null) {
+                    updatedStudent.setId_type(student.getId_type());
                 }
 
                 return studentRepository.save(updatedStudent);

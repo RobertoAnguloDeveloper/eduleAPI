@@ -2,8 +2,10 @@ package com.cipasoft.edule.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.cipasoft.edule.models.Subject;
 import com.cipasoft.edule.models.SubjectClassroom;
 import com.cipasoft.edule.services.ServSubjectClassroom;
 
@@ -23,8 +25,13 @@ public class ConSubjectClassroom {
     }
 
     @GetMapping("/all")
-    public List<SubjectClassroom> getAllSubjectClassrooms() {
-        return subjectClassroomService.getAllSubjectClassrooms();
+    public ResponseEntity<List<SubjectClassroom>> getAllSubjectClassrooms() {
+        List<SubjectClassroom> subjectClassroom = subjectClassroomService.getAllSubjectClassrooms();
+        if (subjectClassroom.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(subjectClassroom);
+        }
     }
 
     @PutMapping("/update")

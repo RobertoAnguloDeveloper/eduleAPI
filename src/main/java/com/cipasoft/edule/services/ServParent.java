@@ -39,8 +39,8 @@ public class ServParent {
                 if (parent.getLastName() != null) {
                     updatedParent.setLastName(parent.getLastName());
                 }
-                if (parent.getCC() != null) {
-                    updatedParent.setCC(parent.getCC());
+                if (parent.getIdentification() != null) {
+                    updatedParent.setIdentification(parent.getIdentification());
                 }
                 if (parent.getPhoneNumber() != null) {
                     updatedParent.setPhoneNumber(parent.getPhoneNumber());
@@ -53,6 +53,12 @@ public class ServParent {
                 }
                 if (parent.getPassword() != null) {
                     updatedParent.setPassword(parent.getPassword());
+                }
+                if (parent.getId_type() != null) {
+                    updatedParent.setId_type(parent.getId_type());
+                }
+                if (parent.getEmail() != null) {
+                    updatedParent.setEmail(parent.getEmail());
                 }
 
                 return parentRepository.save(updatedParent);

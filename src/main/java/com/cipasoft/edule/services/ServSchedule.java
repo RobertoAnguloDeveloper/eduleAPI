@@ -12,25 +12,33 @@ import java.util.Optional;
 @Service
 public class ServSchedule {
     @Autowired
-    private RepoSchedule ScheduleRepository;
+    private RepoSchedule scheduleRepository;
 
     public List<Schedule> getAllSchedules() {
-        return ScheduleRepository.findAll();
+        return scheduleRepository.findAll();
     }
 
     public Optional<Schedule> getScheduleById(Integer id) {
-        return ScheduleRepository.findById(id);
+        return scheduleRepository.findById(id);
     }
 
     public Schedule createSchedule(Schedule Schedule) {
-        return ScheduleRepository.save(Schedule);
+        return scheduleRepository.save(Schedule);
     }
 
     public Schedule updateSchedule(Schedule Schedule) {
-        return ScheduleRepository.save(Schedule);
+        return scheduleRepository.save(Schedule);
+    }
+
+    public List<Object[]> findScheduleDetailsByUsername(String username) {
+        return scheduleRepository.findScheduleDetailsByUsername(username);
+    }
+
+    public List<Object[]> findScheduleDetailsByStudent(String username) {
+        return scheduleRepository.findScheduleDetailsByStudent(username);
     }
 
     public void deleteSchedule(Integer id) {
-        ScheduleRepository.deleteById(id);
+        scheduleRepository.deleteById(id);
     }
 }
