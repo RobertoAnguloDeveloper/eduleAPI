@@ -1,10 +1,14 @@
 package com.cipasoft.edule.models;
 
-import lombok.Data;
+import lombok.Getter;
+// import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+// @Data
 @NoArgsConstructor
+@Getter
+@Setter
 public class CombinedUser {
     private Integer id;
     private String username;
