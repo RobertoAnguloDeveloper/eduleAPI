@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.cipasoft.edule.models.User;
 import com.cipasoft.edule.models.UserSubject;
 import com.cipasoft.edule.services.ServUserSubject;
 

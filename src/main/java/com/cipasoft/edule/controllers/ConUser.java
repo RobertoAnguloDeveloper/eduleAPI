@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.cipasoft.edule.models.CombinedUser;
-import com.cipasoft.edule.models.TopicContent;
 import com.cipasoft.edule.models.User;
 import com.cipasoft.edule.services.ServUser;
 import com.cipasoft.edule.services.UserCombinedService;

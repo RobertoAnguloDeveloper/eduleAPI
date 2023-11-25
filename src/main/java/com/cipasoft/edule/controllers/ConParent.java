@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.cipasoft.edule.models.HourDay;
 import com.cipasoft.edule.models.Parent;
 import com.cipasoft.edule.services.ServParent;
 
