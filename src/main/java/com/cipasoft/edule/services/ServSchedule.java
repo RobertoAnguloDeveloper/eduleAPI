@@ -22,31 +22,12 @@ public class ServSchedule {
         return scheduleRepository.findById(id);
     }
 
-    public Schedule createSchedule(Schedule schedule) {
-        return scheduleRepository.save(schedule);
+    public Schedule createSchedule(Schedule Schedule) {
+        return scheduleRepository.save(Schedule);
     }
 
-    public Schedule updateSchedule(Schedule schedule) {
-        if (schedule != null && schedule.getId() != null) {
-            Optional<Schedule> existingSchedule = scheduleRepository.findById(schedule.getId());
-
-            if (existingSchedule.isPresent()) {
-                Schedule updatedSchedule = existingSchedule.get();
-                
-                if (schedule.getHour_day_id() != null) {
-                    updatedSchedule.setHour_day_id(schedule.getHour_day_id());
-                }
-                if (schedule.getSubject_classroom_id() != null) {
-                    updatedSchedule.setSubject_classroom_id(schedule.getSubject_classroom_id());
-                }
-
-                return scheduleRepository.save(updatedSchedule);
-            } else {
-                return null;
-            }
-        } else {
-            return null;
-        }
+    public Schedule updateSchedule(Schedule Schedule) {
+        return scheduleRepository.save(Schedule);
     }
 
     public List<Object[]> findScheduleDetailsByUsername(String username) {

@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.cipasoft.edule.models.HourDay;
 import com.cipasoft.edule.models.Parent;
 import com.cipasoft.edule.services.ServParent;
 
@@ -31,6 +30,16 @@ public class ConParent {
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.ok(parent);
+        }
+    }
+
+    @GetMapping("/parents/byClassroom/{classroomName}")
+    public ResponseEntity<List<Object[]>> getParentsByClassroom(@PathVariable("classroomName") String classroomName) {
+        List<Object[]> parents = parentService.getParentsByClassroom(classroomName);
+        if (parents.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(parents);
         }
     }
 
