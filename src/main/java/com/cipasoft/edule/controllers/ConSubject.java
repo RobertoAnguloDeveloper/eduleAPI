@@ -33,6 +33,16 @@ public class ConSubject {
         }
     }
 
+    @GetMapping("/subjects/byClassroom/{classroomName}")
+    public ResponseEntity<List<String>> getSubjectsByClassroom(@PathVariable("classroomName") String classroomName) {
+        List<String> subjects = subjectService.getSubjectsByClassroom(classroomName);
+        if (subjects.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(subjects);
+        }
+    }
+
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Subject updateSubject(@RequestBody Subject subject) {

@@ -18,6 +18,10 @@ public class ServSubject {
         return subjectRepository.findAll();
     }
 
+    public List<String> getSubjectsByClassroom(String classroomName) {
+        return subjectRepository.findSubjectsByClassroom(classroomName);
+    }
+
     public Optional<Subject> getSubjectById(Integer id) {
         return subjectRepository.findById(id);
     }
