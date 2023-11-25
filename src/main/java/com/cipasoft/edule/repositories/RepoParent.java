@@ -11,7 +11,7 @@ import com.cipasoft.edule.models.Parent;
 
 @Repository
 public interface RepoParent extends JpaRepository<Parent, Integer> {
-    @Query(value = "SELECT " +
+    @Query(value = "SELECT DISTINCT" +
             "pa.first_name AS first_name, " +
             "pa.last_name AS last_name, " +
             "pa.id_type AS id_type, " +
