@@ -38,7 +38,7 @@ public class ConUser {
         }
     }
 
-    @GetMapping("/byClassroom/{classroomName}")
+    @GetMapping("/teachers/byClassroom/{classroomName}")
     public ResponseEntity<List<Object[]>> getUsersByClassroom(@PathVariable("classroomName") String classroomName) {
         List<Object[]> users = userService.getUsersByClassroom(classroomName);
         if (users.isEmpty()) {
