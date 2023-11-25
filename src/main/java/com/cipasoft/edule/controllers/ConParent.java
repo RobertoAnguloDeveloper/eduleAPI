@@ -33,7 +33,7 @@ public class ConParent {
         }
     }
 
-    @GetMapping("/byClassroom/{classroomName}")
+    @GetMapping("/parents/byClassroom/{classroomName}")
     public ResponseEntity<List<Object[]>> getParentsByClassroom(@PathVariable("classroomName") String classroomName) {
         List<Object[]> parents = parentService.getParentsByClassroom(classroomName);
         if (parents.isEmpty()) {
