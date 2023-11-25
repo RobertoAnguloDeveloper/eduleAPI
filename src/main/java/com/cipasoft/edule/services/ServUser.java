@@ -58,6 +58,10 @@ public class ServUser {
         return academicCoordinators;
     }
 
+    public List<Object[]> getUsersByClassroom(String classroomName) {
+        return userRepository.findUsersByClassroom(classroomName);
+    }
+
     public Optional<User> getUserById(Integer id) {
         return userRepository.findById(id);
     }

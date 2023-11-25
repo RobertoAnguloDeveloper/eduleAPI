@@ -23,6 +23,7 @@ public interface RepoStudent extends JpaRepository<Student, Integer> {
             "FROM students AS stu " +
             "LEFT JOIN classrooms cla ON cla.id = stu.classroom_id " +
             "LEFT JOIN parents pa ON pa.id = stu.parent_id " +
-            "WHERE cla.classroom_name = :classroomName", nativeQuery = true)
+            "WHERE cla.classroom_name = :classroomName" +
+            " ORDER BY stu.last_name;", nativeQuery = true)
     List<Object[]> findStudentsByClassroom(@Param("classroomName") String classroomName);
 }

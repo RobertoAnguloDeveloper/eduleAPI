@@ -38,6 +38,16 @@ public class ConUser {
         }
     }
 
+    @GetMapping("/byClassroom/{classroomName}")
+    public ResponseEntity<List<Object[]>> getUsersByClassroom(@PathVariable("classroomName") String classroomName) {
+        List<Object[]> users = userService.getUsersByClassroom(classroomName);
+        if (users.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(users);
+        }
+    }
+
     @GetMapping("/teachers")
     public List<User> getAllTeachers() {
         return userService.getAllTeachers();
