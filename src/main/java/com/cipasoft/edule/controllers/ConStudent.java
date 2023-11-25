@@ -34,6 +34,16 @@ public class ConStudent {
         }
     }
 
+    @GetMapping("/byClassroom/{classroomName}")
+    public ResponseEntity<List<Object[]>> getStudentsByClassroom(@PathVariable("classroomName") String classroomName) {
+        List<Object[]> students = studentService.getStudentsByClassroom(classroomName);
+        if (students.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(students);
+        }
+    }
+
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Student updateStudent(@RequestBody Student student) {
