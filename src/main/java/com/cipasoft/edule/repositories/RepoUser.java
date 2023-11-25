@@ -25,7 +25,7 @@ public interface RepoUser extends JpaRepository<User, Integer> {
             "LEFT JOIN subjects su ON su.id = usub.subject_id " +
             "LEFT JOIN subjects_classrooms scla ON scla.subject_id = su.id " +
             "LEFT JOIN classrooms cla ON cla.id = scla.classroom_id " +
-            "WHERE cla.classroom_name = :classroomName " +
+            "WHERE u.role_id = 2 AND cla.classroom_name = :classroomName " +
             "ORDER BY su.subject_name, u.last_name", nativeQuery = true)
     List<Object[]> findUsersByClassroom(@Param("classroomName") String classroomName);
 }
