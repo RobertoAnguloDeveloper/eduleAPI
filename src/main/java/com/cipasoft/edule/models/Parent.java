@@ -48,4 +48,7 @@ public class Parent {
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "record_date")
+    private String record_date;
 }
