@@ -22,6 +22,10 @@ public class ServStudent {
         return studentRepository.findById(id);
     }
 
+    public List<Object[]> getStudentsByClassroom(String classroomName) {
+        return studentRepository.findStudentsByClassroom(classroomName);
+    }
+
     public Student createStudent(Student student) {
         return studentRepository.save(student);
     }

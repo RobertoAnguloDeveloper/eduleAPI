@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import com.cipasoft.edule.models.Classroom;
 import com.cipasoft.edule.services.ServClassroom;
 
-import java.util.Collections;
 import java.util.List;
 
 @RestController

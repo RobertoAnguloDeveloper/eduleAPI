@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.cipasoft.edule.models.CombinedUser;
-import com.cipasoft.edule.models.TopicContent;
 import com.cipasoft.edule.models.User;
 import com.cipasoft.edule.services.ServUser;
 import com.cipasoft.edule.services.UserCombinedService;
@@ -36,6 +35,16 @@ public class ConUser {
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.ok(user);
+        }
+    }
+
+    @GetMapping("/teachers/byClassroom/{classroomName}")
+    public ResponseEntity<List<Object[]>> getUsersByClassroom(@PathVariable("classroomName") String classroomName) {
+        List<Object[]> users = userService.getUsersByClassroom(classroomName);
+        if (users.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(users);
         }
     }
 

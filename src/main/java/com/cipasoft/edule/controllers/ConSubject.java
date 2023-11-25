@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.cipasoft.edule.models.Student;
 import com.cipasoft.edule.models.Subject;
 import com.cipasoft.edule.services.ServSubject;
 
@@ -31,6 +30,16 @@ public class ConSubject {
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.ok(subject);
+        }
+    }
+
+    @GetMapping("/subjects/byClassroom/{classroomName}")
+    public ResponseEntity<List<String>> getSubjectsByClassroom(@PathVariable("classroomName") String classroomName) {
+        List<String> subjects = subjectService.getSubjectsByClassroom(classroomName);
+        if (subjects.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(subjects);
         }
     }
 
