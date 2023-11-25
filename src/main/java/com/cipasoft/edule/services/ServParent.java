@@ -18,6 +18,10 @@ public class ServParent {
         return parentRepository.findAll();
     }
 
+    public List<Object[]> getParentsByClassroom(String classroomName) {
+        return parentRepository.findParentsByClassroom(classroomName);
+    }
+
     public Optional<Parent> getParentById(Integer id) {
         return parentRepository.findById(id);
     }

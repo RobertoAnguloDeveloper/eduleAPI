@@ -33,6 +33,16 @@ public class ConParent {
         }
     }
 
+    @GetMapping("/byClassroom/{classroomName}")
+    public ResponseEntity<List<Object[]>> getParentsByClassroom(@PathVariable("classroomName") String classroomName) {
+        List<Object[]> parents = parentService.getParentsByClassroom(classroomName);
+        if (parents.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(parents);
+        }
+    }
+
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Parent updateParent(@RequestBody Parent parent) {
